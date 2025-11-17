@@ -135,7 +135,8 @@ prepare_turtle_canvas()
 p1 = (-350, -100)
 p2 = (-50, 150)
 p3 = (150, -100)
+p4 = (350, 300)
 
-draw_curve_3_points(p1, p3, p2)
+draw_curve_4_points(p1, p2, p3, p4)
 
 turtle.done()
