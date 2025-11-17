@@ -102,4 +102,15 @@ draw_big_point(a2)
 draw_big_point(b1)
 draw_big_point(b2)
 
+for i in range(0, 100, 2):
+    t = i / 100
+
+    Ax = (1-t)*a1[0] + t*a2[0]
+    Ay = (1-t)*a1[1] + t*a2[1]
+    Bx = (1-t)*b1[0] + t*b2[0]
+    By = (1-t)*b1[1] + t*b2[1]
+
+    draw_point((Ax, Ay))
+    draw_point((Bx, By))
+
 turtle.done()
