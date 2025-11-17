@@ -92,5 +92,14 @@ def draw_curve_4_points(p1, p2, p3, p4):
 
 prepare_turtle_canvas()
 
+a1 = (-94, 223)
+a2 = (-158, -54)
+b1 =(154,-205)
+b2 = (131, 293)
+
+draw_big_point(a1)
+draw_big_point(a2)
+draw_big_point(b1)
+draw_big_point(b2)
 
 turtle.done()
