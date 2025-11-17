@@ -55,8 +55,19 @@ def draw_point(p):
 
 def draw_curve_3_points(p1, p2, p3):
     # fill here
-    pass
+    draw_big_point(p1)
+    draw_big_point(p2)
+    draw_big_point(p3)
 
+    x1, y1 = p1
+    x2, y2 = p2
+    x3, y3 = p3
+
+    for i in range(0, 100, 2):
+        t = i / 100
+        x = (2 * t**2 - 3 * t + 1) * x1 + (-4 * t**2 + 4 * t) * x2 + (2 * t**2 - t) * x3
+        y = (2 * t**2 - 3 * t + 1) * y1 + (-4 * t**2 + 4 * t) * y2 + (2 * t**2 - t) * y3
+        draw_point((x, y))
 
 
 def draw_curve_4_points(p1, p2, p3, p4):
@@ -90,32 +101,41 @@ def draw_curve_4_points(p1, p2, p3, p4):
     draw_point(p4)
 
 
+def mix_two_line():
+    a1 = (-94, 223)
+    a2 = (-158, -54)
+    b1 = (154, -205)
+    b2 = (131, 293)
+
+    draw_big_point(a1)
+    draw_big_point(a2)
+    draw_big_point(b1)
+    draw_big_point(b2)
+
+    for i in range(0, 100, 2):
+        t = i / 100
+
+        Ax = (1 - t) * a1[0] + t * a2[0]
+        Ay = (1 - t) * a1[1] + t * a2[1]
+        Bx = (1 - t) * b1[0] + t * b2[0]
+        By = (1 - t) * b1[1] + t * b2[1]
+
+        x = (1 - t) * Ax + t * Bx
+        y = (1 - t) * Ay + t * By
+
+        draw_point((Ax, Ay))
+        draw_point((Bx, By))
+
+        draw_point((x, y))
+
 prepare_turtle_canvas()
 
-a1 = (-94, 223)
-a2 = (-158, -54)
-b1 =(154,-205)
-b2 = (131, 293)
+#mix_two_line()
 
-draw_big_point(a1)
-draw_big_point(a2)
-draw_big_point(b1)
-draw_big_point(b2)
+p1 = (-350, -100)
+p2 = (-50, 150)
+p3 = (150, -100)
 
-for i in range(0, 100, 2):
-    t = i / 100
-
-    Ax = (1-t)*a1[0] + t*a2[0]
-    Ay = (1-t)*a1[1] + t*a2[1]
-    Bx = (1-t)*b1[0] + t*b2[0]
-    By = (1-t)*b1[1] + t*b2[1]
-
-    x = (1-t)*Ax + t*Bx
-    y = (1-t)*Ay + t*By
-
-    draw_point((Ax, Ay))
-    draw_point((Bx, By))
-
-    draw_point((x, y))
+draw_curve_3_points(p1, p3, p2)
 
 turtle.done()
