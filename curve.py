@@ -110,7 +110,12 @@ for i in range(0, 100, 2):
     Bx = (1-t)*b1[0] + t*b2[0]
     By = (1-t)*b1[1] + t*b2[1]
 
+    x = (1-t)*Ax + t*Bx
+    y = (1-t)*Ay + t*By
+
     draw_point((Ax, Ay))
     draw_point((Bx, By))
+
+    draw_point((x, y))
 
 turtle.done()
